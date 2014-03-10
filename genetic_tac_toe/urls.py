@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', 'genetic_tac_toe.core.views.interface', name='interface'),
 )
