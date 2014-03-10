@@ -15,28 +15,14 @@ d8P' ?88
 88b  d88
 `?8888P'
 '''
-    grid = '''
-                          |            |
-                          |            |
-                          |            |
-                          |            |
-                          |            |
-                          |            |
-                          |            |
-             _____________|____________|_______________
-                          |            |
-                          |            |
-                          |            |
-                          |            |
-                          |            |
-                          |            |
-             _____________|____________|_______________
-                          |            |
-                          |            |
-                          |            |
-                          |            |
-                          |            |
-                          |            |
-                          |            |
-'''
-    return render(request, 'interface.html', {'x':x,'o':o})
+    grid = {
+        'top':{'left':'','mid':'','right':''},
+        'mid':{'left':'','mid':'','right':''},
+        'bot':{'left':'','mid':'','right':''},
+        }
+    grid['top']['left'] = x
+    grid['mid']['mid'] = x
+    grid['bot']['right'] = x
+    
+
+    return render(request, 'interface.html', {'grid':grid})
