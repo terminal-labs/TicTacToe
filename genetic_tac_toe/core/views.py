@@ -1,14 +1,15 @@
 import copy
 
 from django.shortcuts import render
-from engine import Game
+
+from engine import Game, Computer, Human
 
 
 
 # Create your views here.
 
 
-game = Game()
+game = Computer()
 
 def interface(request):
     
@@ -24,19 +25,22 @@ d8P' ?88
 88b  d88
 `?8888P'
 '''    
+
     grid = copy.deepcopy(game.state)
     for column in grid.keys():
-        print grid[column]
         for row in grid[column].keys():
             if grid[column][row] == 'x':
                 grid[column][row] = x
 
             elif grid[column][row] == 'o':
                 grid[column][row] = o
-
-    return render(request, 'interface.html', {'grid':grid})
+    print game.won, game.draw
+    print grid
+    return render(request, 'interface.html', {'grid':grid,'won':game.won,'draw':game.draw})
 
 def render_move(request):
+    if game.won or game.draw:
+        return interface(request)
     key_mapping = {
         '1':('bot','left'),
         '2':('bot','mid'),
@@ -50,13 +54,29 @@ def render_move(request):
         }
 
     for input in map(lambda i: str(i),xrange(1,10)):
-        if request.GET['move'] == input:
+        print 2
+        if request.GET.get('move','') == input:
             cord = key_mapping[input]
-            game.make_move(cord[0],cord[1])
+            if not game.won or game.draw:
+                print 3
+                game.make_move(cord[0],cord[1],'o')
+                game.check_state()
+            else:
+                break
 
+            if not game.won or game.draw:
+                print 4
+                game.compute_move()
+                game.check_state()
+            else:
+                break
+
+    print 555
     return interface(request)
 
 def restart(request):
     global game
-    game = Game()
+    game = Computer()
+    game.compute_move()
+
     return interface(request)

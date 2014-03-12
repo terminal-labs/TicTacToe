@@ -46,67 +46,174 @@
 </pre>
 
 <!-- Top Row -->
-<div style="position:absolute; top:180px; left:130px;">
+<div style="position:absolute; top:180px; left:130px; font-family:Monospace;">
+{% if grid.top.left %}
 <pre>
 {{grid.top.left}}
 </pre>
+{% else %}
+  <p>7</p>
+{% endif %}
 </div>
 
-<div style="position:absolute; top:180px; left:235px;">
+<div style="position:absolute; top:180px; left:235px; font-family:Monospace;">
+{% if grid.top.mid %}
 <pre>
 {{grid.top.mid}}
 </pre>
+{% else %}
+  <p>8</p>
+{% endif %}
 </div>
 
-<div style="position:absolute; top:180px; left:340px;">
+<div style="position:absolute; top:180px; left:340px; font-family:Monospace;">
+{% if grid.top.right %}
 <pre>
 {{grid.top.right}}
 </pre>
+{% else %}
+  <p>9</p>
+{% endif %}
 </div>
 
 
 <!-- Middle Row  -->
-<div style="position:absolute; top:290px; left:130px;">
+<div style="position:absolute; top:290px; left:130px; font-family:Monospace;">
+{% if grid.mid.left %}
 <pre>
 {{grid.mid.left}}
 </pre>
+{% else %}
+  <p>4</p>
+{% endif %}
 </div>
 
-<div style="position:absolute; top:290px; left:235px;">
+<div style="position:absolute; top:290px; left:235px; font-family:Monospace;">
+{% if grid.mid.mid %}
 <pre>
 {{grid.mid.mid}}
 </pre>
+{% else %}
+  <p>5</p>
+{% endif %}
 </div>
 
-<div style="position:absolute; top:290px; left:340px;">
+<div style="position:absolute; top:290px; left:340px; font-family:Monospace;">
+{% if grid.mid.right %}
 <pre>
 {{grid.mid.right}}
 </pre>
+{% else %}
+  <p>6</p>
+{% endif %}
 </div>
 
 
 
 <!-- Bottem Row  -->
-<div style="position:absolute; top:390px; left:130px;">
+<div style="position:absolute; top:390px; left:130px; font-family:Monospace;">
+{% if grid.bot.left %}
 <pre>
 {{grid.bot.left}}
 </pre>
+{% else %}
+  <p>1</p>
+{% endif %}
 </div>
 
 
-<div style="position:absolute; top:390px; left:235px;">
+<div style="position:absolute; top:390px; left:235px; font-family:Monospace;">
+{% if grid.bot.mid %}
 <pre>
 {{grid.bot.mid}}
 </pre>
+{% else %}
+  <p>2</p>
+{% endif %}
 </div>
 
-<div style="position:absolute; top:390px; left:340px;">
+<div style="position:absolute; top:390px; left:340px; font-family:Monospace;">
+{% if grid.bot.right %}
 <pre>
 {{grid.bot.right}}
 </pre>
+{% else %}
+  <p>3</p>
+{% endif %}
 </div>
 
 
 
 </body>
 </html>
+
+{% if won %}
+<div style="position:absolute; top:130px; left:420px;">
+<pre>
+                                    XXXXXXX       XXXXXXX                                                                    
+                                    X:::::X       X:::::X                                                                    
+                                    X:::::X       X:::::X                                                                    
+                                    X::::::X     X::::::X                                                                    
+                                    XXX:::::X   X:::::XXX                                                                    
+                                       X:::::X X:::::X                                                                       
+                                       X:::::X:::::X                                                                        
+                                       X:::::::::X                                                                         
+                                       X:::::::::X                                                                         
+                                      X:::::X:::::X                                                                        
+                                     X:::::X X:::::X                                                                       
+                                  XXX:::::X   X:::::XXX                                                                    
+                                  X::::::X     X::::::X                                                                    
+                                  X:::::X       X:::::X                                                                    
+                                  X:::::X       X:::::X                                                                    
+                                  XXXXXXX       XXXXXXX                                                                    
+                                                                                         
+                                                                                         
+WWWWWWWW                           WWWWWWWW iiii                                     !!! 
+W::::::W                           W::::::Wi::::i                                   !!:!!
+W::::::W                           W::::::W iiii                                    !:::!
+W::::::W                           W::::::W                                         !:::!
+ W:::::W           WWWWW           W:::::Wiiiiiiinnnn  nnnnnnnn        ssssssssss   !:::!
+  W:::::W         W:::::W         W:::::W i:::::in:::nn::::::::nn    ss::::::::::s  !:::!
+   W:::::W       W:::::::W       W:::::W   i::::in::::::::::::::nn ss:::::::::::::s !:::!
+    W:::::W     W:::::::::W     W:::::W    i::::inn:::::::::::::::ns::::::ssss:::::s!:::!
+     W:::::W   W:::::W:::::W   W:::::W     i::::i  n:::::nnnn:::::n s:::::s  ssssss !:::!
+      W:::::W W:::::W W:::::W W:::::W      i::::i  n::::n    n::::n   s::::::s      !:::!
+       W:::::W:::::W   W:::::W:::::W       i::::i  n::::n    n::::n      s::::::s   !!:!!
+        W:::::::::W     W:::::::::W        i::::i  n::::n    n::::nssssss   s:::::s  !!! 
+         W:::::::W       W:::::::W        i::::::i n::::n    n::::ns:::::ssss::::::s     
+          W:::::W         W:::::W         i::::::i n::::n    n::::ns::::::::::::::s  !!! 
+           W:::W           W:::W          i::::::i n::::n    n::::n s:::::::::::ss  !!:!!
+            WWW             WWW           iiiiiiii nnnnnn    nnnnnn  sssssssssss     !!!
+</pre>
+</div>
+
+{% endif %}
+
+{% if draw %}
+<div style="position:absolute; top:240px; left:150px;">
+<pre>
+ ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 
+▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌ ▀▀▀▀█░█▀▀▀▀ 
+▐░▌          ▐░▌       ▐░▌     ▐░▌     
+▐░▌          ▐░█▄▄▄▄▄▄▄█░▌     ▐░▌     
+▐░▌          ▐░░░░░░░░░░░▌     ▐░▌     
+▐░▌          ▐░█▀▀▀▀▀▀▀█░▌     ▐░▌     
+▐░▌          ▐░▌       ▐░▌     ▐░▌     
+▐░█▄▄▄▄▄▄▄▄▄ ▐░▌       ▐░▌     ▐░▌     
+▐░░░░░░░░░░░▌▐░▌       ▐░▌     ▐░▌     
+ ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀       ▀      
+</pre>
+</div>
+{% endif %}
+
+<div style="position:absolute; top:150px; left:1000px; font-family:Monospace;">
+  <p>
+    Instructions:<br><br>
+    Your are "O"!<br><br>
+    Use the num pad to make your move!<br><br>
+    To start a new game type "r"!<br><br>
+    Good Luck!
+  </p>
+</div>
+
