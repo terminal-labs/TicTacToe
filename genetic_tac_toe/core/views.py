@@ -2,7 +2,7 @@ import copy
 
 from django.shortcuts import render
 
-from engine import Game, Computer, Human
+from engine import Game, Computer
 
 
 
@@ -38,7 +38,7 @@ d8P' ?88
     print grid
     return render(request, 'interface.html', {'grid':grid,'won':game.won,'draw':game.draw})
 
-def render_move(request):
+def render_move(request,move=None):
     if game.won or game.draw:
         return interface(request)
     key_mapping = {
@@ -54,24 +54,20 @@ def render_move(request):
         }
 
     for input in map(lambda i: str(i),xrange(1,10)):
-        print 2
-        if request.GET.get('move','') == input:
+        if move == input:
             cord = key_mapping[input]
             if not game.won or game.draw:
-                print 3
                 game.make_move(cord[0],cord[1],'o')
                 game.check_state()
             else:
                 break
 
             if not game.won or game.draw:
-                print 4
                 game.compute_move()
                 game.check_state()
             else:
                 break
 
-    print 555
     return interface(request)
 
 def restart(request):

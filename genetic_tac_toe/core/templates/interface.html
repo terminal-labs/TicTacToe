@@ -1,5 +1,47 @@
 <html>
-<head><title>Genetic - Tac - Toe</title></head>
+<head>
+  <title>Genetic - Tac - Toe</title>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>
+    $( document ).keypress(function(e) {
+      if(e.which == 105 || e.which == 57){
+        window.location.replace("{% url 'genetic_tac_toe.core.views.render_move' '9' %}")
+      }
+      if(e.which == 104 || e.which == 56){
+        window.location.replace("{% url 'genetic_tac_toe.core.views.render_move' '8' %}")
+      }
+      if(e.which == 103 || e.which == 55){
+        window.location.replace("{% url 'genetic_tac_toe.core.views.render_move' '7' %}")
+      }
+      if(e.which == 102 || e.which == 54){
+        window.location.replace("{% url 'genetic_tac_toe.core.views.render_move' '6' %}")
+      }
+      if(e.which == 101 || e.which == 53){
+        window.location.replace("{% url 'genetic_tac_toe.core.views.render_move' '5' %}")
+      }
+      if(e.which == 100 || e.which == 52){
+        window.location.replace("{% url 'genetic_tac_toe.core.views.render_move' '4' %}")
+      }
+      if(e.which == 99 || e.which == 51){
+        window.location.replace("{% url 'genetic_tac_toe.core.views.render_move' '3' %}")
+      }
+      if(e.which == 98 || e.which == 50){
+        window.location.replace("{% url 'genetic_tac_toe.core.views.render_move' '2' %}")
+      }
+
+      if(e.which == 97 || e.which == 49){
+        window.location.replace("{% url 'genetic_tac_toe.core.views.render_move' '1' %}")
+      }
+      if(e.which == 32){
+        window.location.replace("{% url 'genetic_tac_toe.core.views.restart' %}")
+      };
+
+    });
+  </script>
+
+  
+</head>
 
 <body>
 <FONT COLOR="lime">
@@ -210,10 +252,9 @@ W::::::W                           W::::::W                                     
 <div style="position:absolute; top:150px; left:1000px; font-family:Monospace;">
   <p>
     Instructions:<br><br>
-    Your are "O"!<br><br>
+    You are "O"!<br><br>
     Use the num pad to make your move!<br><br>
-    To start a new game type "r"!<br><br>
+    Use the Spacebar to start a new game!<br><br>
     Good Luck!
   </p>
 </div>
-

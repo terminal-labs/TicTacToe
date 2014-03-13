@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^move/', 'genetic_tac_toe.core.views.render_move'),
+    url(r'^move/(\d{1})$', 'genetic_tac_toe.core.views.render_move'),
     url(r'^restart/', 'genetic_tac_toe.core.views.restart'),
     url(r'^$', 'genetic_tac_toe.core.views.interface'),
 
