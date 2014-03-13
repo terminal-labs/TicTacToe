@@ -46,6 +46,11 @@ class Game(object):
 
 class Computer(Game):
     def compute_move(self):
+        '''
+        This is a dummy AI I have in place while completing a working interface.
+        It simply randomly picks a free space on the grid. It does NOT at all
+        satisfy the requierment that it never loses.
+        '''
         if self.won or self.draw:
             return
         pos = 1
@@ -57,11 +62,6 @@ class Computer(Game):
                 break
 
         self.make_move(y_pos, x_pos, 'x')
-
-class Human(Game):
-    pass
-
-#    def start(self):
         
         
 
