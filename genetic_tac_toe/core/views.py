@@ -34,28 +34,15 @@ d8P' ?88
 
             elif grid[column][row] == 'o':
                 grid[column][row] = o
-    print game.won, game.draw
-    print grid
     return render(request, 'interface.html', {'grid':grid,'won':game.won,'draw':game.draw})
 
 def render_move(request,move=None):
     if game.won or game.draw:
         return interface(request)
-    key_mapping = {
-        '1':('bot','left'),
-        '2':('bot','mid'),
-        '3':('bot','right'),
-        '4':('mid','left'),
-        '5':('mid','mid'),
-        '6':('mid','right'),
-        '7':('top','left'),
-        '8':('top','mid'),
-        '9':('top','right'),
-        }
 
     for input in map(lambda i: str(i),xrange(1,10)):
         if move == input:
-            cord = key_mapping[input]
+            cord = game.key_mapping[input]
             if not game.won or game.draw:
                 game.make_move(cord[0],cord[1],'o')
                 game.check_state()
