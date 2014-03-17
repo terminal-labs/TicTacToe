@@ -39,21 +39,11 @@ d8P' ?88
 def render_move(request,move=None):
     if game.won or game.draw:
         return interface(request)
-
-    for input in map(lambda i: str(i),xrange(1,10)):
-        if move == input:
-            cord = game.key_mapping[input]
-            if not game.won or game.draw:
-                game.make_move(cord[0],cord[1],'o')
-                game.check_state()
-            else:
-                break
-
-            if not game.won or game.draw:
-                game.compute_move()
-                game.check_state()
-            else:
-                break
+    if move in map(str,range(1,10)):
+        if not game.won or game.draw:
+            game.make_move('o',num_pos=move)
+        if not game.won or game.draw:
+            game.compute_move()
 
     return interface(request)
 
